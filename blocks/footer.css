@@ -1,22 +1,30 @@
 .footer {
   color: rgba(84, 84, 84, 1);
-  max-width: 318px;
+  margin-top: 67px;
   margin-bottom: 60px;
+  align-items: center;
 }
 
-.footer__content {
-  max-height: 18px;
-}
 .footer__copyright {
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
+  margin: 0;
+  max-height: 18px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 520px) {
   .footer {
     max-width: 282px;
+    margin-top: 48px;
     margin-bottom: 36px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer__copyright {
+    line-height: 17px;
+    font-size: 14px;
   }
 }
