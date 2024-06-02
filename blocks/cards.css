@@ -53,12 +53,12 @@
 }
 
 .cards__like-button:hover {
-  opacity: 0.6;
+  opacity: -0.5;
   cursor: pointer;
 }
 
 @media screen and (max-width: 620px) {
   .cards {
-    margin-top: 36px;
+    margin-top: 0;
   }
 }

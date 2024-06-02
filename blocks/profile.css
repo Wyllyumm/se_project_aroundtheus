@@ -20,7 +20,7 @@
   grid-area: button;
   margin-left: 18px;
   background-size: 10px;
-  border-radius: 1px solid rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 1);
 }
 
 .profile__edit-button:hover {
@@ -36,7 +36,7 @@
   border: 2px solid white;
   padding: 0;
   background-size: 22px;
-  border-radius: 2px solid white;
+  border-radius: 2px;
 }
 
 .profile__add-button:hover {
