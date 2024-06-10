@@ -7,7 +7,7 @@
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  padding: 0 19px;
+  margin: 0 19px;
 }
 
 .modal__container {
@@ -67,6 +67,7 @@
 @media screen and (max-width: 620px) {
   .modal__container {
     padding: 25px 22px;
+    max-width: calc(100% - 38px);
   }
 
   .modal__button {
