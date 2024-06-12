@@ -1,12 +1,12 @@
 .modal {
   position: fixed;
+  display: none;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
   margin: 0 19px;
 }
 
@@ -64,29 +64,33 @@
   cursor: pointer;
 }
 
+.modal_opened {
+  display: flex;
+}
+
 @media screen and (max-width: 620px) {
   .modal__container {
     padding: 25px 22px;
     max-width: calc(100% - 38px);
+    bottom: 130px;
   }
 
   .modal__button {
     margin-top: 45px;
     margin-bottom: 0;
-  }
-
-  .modal__close {
-    top: -40px;
-    right: 0;
-    width: 26px;
-    height: 26px;
+    font-size: 14px;
   }
 
   .modal__heading {
     font-size: 18px;
   }
+}
 
-  .modal__button {
-    font-size: 14px;
+@media screen and (max-width: 800px) {
+  .modal__close {
+    top: -40px;
+    right: 0;
+    width: 26px;
+    height: 26px;
   }
 }
