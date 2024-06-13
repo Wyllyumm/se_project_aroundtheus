@@ -1,7 +1,7 @@
 Project 3: Around the U.S.
 
 Features:
-This project was made with a focus on responsive design. It was made so that images display correctly at different screen resolutions. As you expand or shrinkg screen resolutions, images will compress or expand into columns as necessary.
+This project was made with a focus on responsive design. It was made so that images display correctly at different screen resolutions. As you expand or shrink the screen resolutions, images will compress or expand into columns as necessary. Also features basic javascript which enables a form popup allowing users to edit the profile section.
 Examples:
 
 ![5D62D453-3E35-421F-9324-BA7ED9B6B533](https://github.com/Wyllyumm/se_project_aroundtheus/assets/167792287/98e29500-81dd-4656-a8d1-1fd4f9f5ac76)
