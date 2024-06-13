@@ -68,6 +68,32 @@
   display: flex;
 }
 
+.modal__input {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  width: 100%;
+  height: 27px;
+  margin-top: 30px;
+  border-bottom-color: 1px solid rgba(84, 84, 84, 0.7);
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  padding-bottom: 13px;
+}
+
+.modal__input:first-child {
+  margin-top: 54px;
+}
+
+@media screen and (max-width: 800px) {
+  .modal__close {
+    top: -40px;
+    right: 0;
+    width: 26px;
+    height: 26px;
+  }
+}
+
 @media screen and (max-width: 620px) {
   .modal__container {
     padding: 25px 22px;
@@ -86,11 +112,8 @@
   }
 }
 
-@media screen and (max-width: 800px) {
-  .modal__close {
-    top: -40px;
-    right: 0;
-    width: 26px;
-    height: 26px;
+@media screen and (max-width: 620px) {
+  .modal__input:first-child {
+    margin-top: 75px;
   }
 }
