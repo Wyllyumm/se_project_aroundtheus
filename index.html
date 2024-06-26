@@ -39,7 +39,11 @@
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button
+            class="profile__add-button"
+            type="button"
+            id="card-add-button"
+          ></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list"></ul>
@@ -51,7 +55,7 @@
     </div>
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="modal-closed-button"></button>
+        <button class="modal__close" id="profile-closed-button"></button>
         <p class="modal__heading">Edit profile</p>
         <form class="modal__form" id="modal-edit-form">
           <input
@@ -72,6 +76,39 @@
         </form>
       </div>
     </div>
+    <div class="modal" id="card-add-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="card-closed-button"></button>
+        <p class="modal__heading">New Place</p>
+        <form class="modal__form" id="add-card-form">
+          <input
+            class="modal__input modal__input_type_title"
+            type="text"
+            name="title"
+            placeholder="Title"
+            id="card-title-input"
+          />
+          <input
+            class="modal__input modal__input_type_url"
+            type="text"
+            name="url"
+            placeholder="Image URL"
+            id="image-url-input"
+          />
+          <button class="modal__button">Create</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="image-modal">
+      <div class="modal__container modal__container_type_image">
+        <button
+          class="modal__close modal__close_image"
+          id="image-modal-close"
+        ></button>
+        <img class="modal__image" id="preview-image" src="" />
+        <p class="preview__caption" id="preview-image-caption"></p>
+      </div>
+    </div>
 
     <template id="card-template">
       <li class="cards__list-item">
@@ -79,6 +116,7 @@
         <div class="cards__description">
           <h2 class="cards__title"></h2>
           <button class="cards__like-button" type="button"></button>
+          <button class="cards__delete-button" type="button"></button>
         </div>
       </li>
     </template>
