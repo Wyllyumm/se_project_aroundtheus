@@ -48,17 +48,32 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
-const profileEditForm = profileEditModal.querySelector("#modal-edit-form");
+const profileEditForm = profileEditModal.querySelector("#profile-edit-form");
 const addCardForm = addCardModal.querySelector("#add-card-form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-const cardTitleInput = addCardForm.querySelector(".modal__input_type_title");
-const cardUrlInput = addCardForm.querySelector(".modal__input_type_url");
+const cardTitleInput = addCardForm.querySelector(".popup__input_type_title");
+const cardUrlInput = addCardForm.querySelector(".popup__input_type_url");
 
 /* Functions */
+function clickToCloseListener(event) {
+  if (event.target.classList.contains("modal_opened")) {
+    closePopUp(event.target);
+  }
+}
+
+function escToCloseListener(event) {
+  if (event.key === "Escape" || event.key === "Esc") {
+    const modal = document.querySelector(".modal_opened");
+    closePopUp(modal);
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  modal.addEventListener("click", clickToCloseListener);
+  document.addEventListener("keydown", escToCloseListener);
 }
 
 function closePopUp(modal) {
