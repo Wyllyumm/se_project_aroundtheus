@@ -56,8 +56,8 @@ const addCardForm = addCardModal.querySelector("#add-card-form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-const cardTitleInput = addCardForm.querySelector(".popup__input_type_title");
-const cardUrlInput = addCardForm.querySelector(".popup__input_type_url");
+const cardTitleInput = addCardForm.querySelector(".modal__input_type_title");
+const cardUrlInput = addCardForm.querySelector(".modal__input_type_url");
 
 /* Functions */
 function clickToCloseListener(event) {
