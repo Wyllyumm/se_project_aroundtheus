@@ -23,7 +23,7 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  max-width: 430px;
+  width: 430px;
   max-height: 330px;
   position: relative;
 }
@@ -31,7 +31,7 @@
 .modal__container_type_image {
   background: transparent;
   padding: 0;
-  max-width: 816px;
+  width: 816px;
   max-height: 540px;
 }
 
@@ -60,10 +60,6 @@
   font-size: 24px;
   font-weight: 900;
   height: 23px;
-}
-
-.modal__form {
-  width: 385px;
 }
 
 .modal_opened {
