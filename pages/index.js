@@ -1,3 +1,5 @@
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -54,10 +56,13 @@ const profileDescriptionInput = document.querySelector(
 const profileEditForm = profileEditModal.querySelector("#profile-edit-form");
 const addCardForm = addCardModal.querySelector("#add-card-form");
 const cardListEl = document.querySelector(".cards__list");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
 const cardTitleInput = addCardForm.querySelector(".modal__input_type_title");
 const cardUrlInput = addCardForm.querySelector(".modal__input_type_url");
+
+const cardSelector = "#card-template";
 
 /* Functions */
 function clickToCloseListener(event) {
@@ -85,43 +90,9 @@ function closePopUp(modal) {
   document.removeEventListener("keydown", escToCloseListener);
 }
 
-function getCardElement(data) {
-  const cardElement = cardTemplate.cloneNode(true);
-
-  const cardImageEl = cardElement.querySelector(".cards__image");
-  const cardTitleEl = cardElement.querySelector(".cards__title");
-  const likeButton = cardElement.querySelector(".cards__like-button");
-  const deleteButton = cardElement.querySelector(".cards__delete-button");
-  const previewImage = previewImageModal.querySelector("#preview-image");
-  const previewCaption = previewImageModal.querySelector(
-    "#preview-image-caption"
-  );
-
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
-
-  cardImageEl.addEventListener("click", () => {
-    openModal(previewImageModal);
-    previewImage.src = data.link;
-    previewImage.alt = data.name;
-    previewCaption.textContent = data.name;
-  });
-
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("cards__like-button_active");
-  });
-
-  cardImageEl.setAttribute("src", data.link);
-  cardImageEl.setAttribute("alt", data.name);
-  cardTitleEl.textContent = data.name;
-
-  return cardElement;
-}
-
 function renderCard(data, wrapper) {
-  const cardElement = getCardElement(data);
-  wrapper.prepend(cardElement);
+  const card = new Card(data, "#card-template").getView();
+  wrapper.prepend(card);
 }
 
 /* Handlers */
@@ -140,6 +111,7 @@ function handleAddCardFormSubmit(e) {
   renderCard({ name, link }, cardListEl);
   closePopUp(addCardModal);
   addCardForm.reset();
+  addFormValidator.resetValidation();
 }
 
 /* Event Listeners */
@@ -161,3 +133,18 @@ previewImageModalCloseButton.addEventListener("click", () =>
 );
 
 initialCards.forEach((data) => renderCard(data, cardListEl));
+
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const editFormValidator = new FormValidator(settings, profileEditForm);
+const addFormValidator = new FormValidator(settings, addCardForm);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
