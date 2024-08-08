@@ -50,9 +50,9 @@ class FormValidator {
 
   _toggleButtonState() {
     if (this._hasInvalidInput(this._inputEls)) {
-      this._disableButton(this._submitButton, this._inactiveButtonClass);
+      this._disableButton();
     } else {
-      this._enableButton(this._submitButton, this._inactiveButtonClass);
+      this._enableButton();
     }
   }
 
