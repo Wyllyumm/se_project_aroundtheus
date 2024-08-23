@@ -48,8 +48,8 @@ const userInfo = new UserInfo({
 
 const imagePopup = new PopupWithImage("#image-modal");
 
-function handleImageClick(popupSelector, link, name) {
-  imagePopup.open(popupSelector, link, name);
+function handleImageClick(data) {
+  imagePopup.open(data);
 }
 imagePopup.setEventListeners();
 
