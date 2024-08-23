@@ -65,8 +65,6 @@ newProfilePopup.setEventListeners();
 function handleCardFormSubmit(inputValues) {
   const card = createCard({ name: inputValues.title, link: inputValues.url });
   section.addItem(card);
-  /*toggleButtonState no longer working */
-  addFormValidator.toggleButtonState();
 }
 
 function handleProfileFormSubmit(inputValues) {
@@ -86,7 +84,10 @@ profileEditButton.addEventListener("click", () => {
   editFormValidator.resetValidation();
 });
 
-addNewCardButton.addEventListener("click", () => newCardPopup.open());
+addNewCardButton.addEventListener("click", () => {
+  newCardPopup.open();
+  addFormValidator.toggleButtonState();
+});
 
 const editFormValidator = new FormValidator(settings, profileEditForm);
 const addFormValidator = new FormValidator(settings, addCardForm);
