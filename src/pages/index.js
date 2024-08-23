@@ -65,6 +65,7 @@ newProfilePopup.setEventListeners();
 function handleCardFormSubmit(inputValues) {
   const card = createCard({ name: inputValues.title, link: inputValues.url });
   section.addItem(card);
+  /*toggleButtonState no longer working */
   addFormValidator.toggleButtonState();
 }
 
