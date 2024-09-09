@@ -118,8 +118,8 @@ avatarPopup.setEventListeners();
 function handleCardFormSubmit(inputValues) {
   api
     .postCards(inputValues)
-    .then(() => {
-      renderer({ name: inputValues.name, link: inputValues.link });
+    .then((data) => {
+      renderer(data);
     })
     .finally(() => {
       newCardPopup.setLoading(false);
