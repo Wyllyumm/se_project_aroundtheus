@@ -79,13 +79,9 @@ function createCard(data) {
 
 function handleDeleteCard(data) {
   deleteConfirmPopup.open();
-  deleteConfirmPopup
-    .setSubmit(() => {
-      api.deleteCard(data.getId()).then(() => data.handleDeleteButton());
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+  deleteConfirmPopup.setSubmit(() => {
+    return api.deleteCard(data.getId()).then(() => data.handleDeleteButton());
+  });
 }
 
 function handleLikeCard(data) {
@@ -141,30 +137,27 @@ newProfilePopup.setEventListeners();
 const avatarPopup = new PopupWithForm("#avatar-modal", handleAvatarFormSubmit);
 avatarPopup.setEventListeners();
 
-/*function handleCardFormSubmit(inputValues) {
-  api
+function handleCardFormSubmit(inputValues) {
+  return api
     .postCards(inputValues)
     .then((data) => {
       renderer(data);
-    })
-    /*.catch((err) => {
-      console.error(err);
     })
     .finally(() => {
       newCardPopup.setLoading(false);
     });
-} */
-function handleCardFormSubmit({ inputValues }) {
+}
+/*function handleCardFormSubmit({ inputValues }) {
   api
     .postCards(inputValues)
-    .then((data) => {
-      renderer(data);
+    .then(() => {
+      renderer({ inputValues });
     })
 
     .finally(() => {
       newCardPopup.setLoading(false);
     });
-}
+}*/
 
 function handleProfileFormSubmit(inputValues) {
   return api
@@ -175,7 +168,6 @@ function handleProfileFormSubmit(inputValues) {
         about: inputValues.about,
       });
     })
-
     .finally(() => {
       newProfilePopup.setLoading(false);
     });

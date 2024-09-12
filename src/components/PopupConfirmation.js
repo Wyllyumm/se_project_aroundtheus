@@ -7,7 +7,6 @@ export default class PopupConfirmation extends Popup {
     this._deleteConfirm = this._popupElement.querySelector(
       "#confirm-delete-button"
     );
-    /*this._handleDeleteConfirm = null; */
   }
 
   setSubmit(confirmAction) {
@@ -18,20 +17,22 @@ export default class PopupConfirmation extends Popup {
     super.setEventListeners();
     this._popupForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      if (this._handleDeleteConfirm) {
-        this.setSubmit();
-      } else {
-        console.error();
-      }
-      this.close();
+      this._handleDeleteConfirm().then(() => {
+        this.close();
+      });
     });
   }*/
-
   setEventListeners() {
     super.setEventListeners();
     this._popupForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      this._handleDeleteConfirm().then(() => this.close());
+      this._handleDeleteConfirm()
+        .then(() => {
+          this.close();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     });
   }
 }
