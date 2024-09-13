@@ -29,7 +29,7 @@ api
 
 const section = new Section(
   {
-    items: {},
+    items: [],
     renderer,
   },
   ".cards__list"
@@ -38,22 +38,11 @@ const section = new Section(
 api
   .getInitialCards()
   .then((cardData) => {
-    /*const section = new Section({ items: cardData, renderer }, ".cards__list"); */
     section.renderItems(cardData);
   })
   .catch((err) => {
     console.error(err);
   });
-
-/*api
-  .getInitialCards()
-  .then((cardData) => {
-    const section = new Section({ items: [], renderer }, ".cards__list");
-    section.renderItems(cardData);
-  })
-  .catch((err) => {
-    console.error(err);
-  });*/
 
 /* Elements */
 const imageEditButton = document.querySelector(".profile__image-edit-icon");
@@ -155,17 +144,6 @@ function handleCardFormSubmit(inputValues) {
       newCardPopup.setLoading(false);
     });
 }
-/*function handleCardFormSubmit({ inputValues }) {
-  api
-    .postCards(inputValues)
-    .then(() => {
-      renderer({ inputValues });
-    })
-
-    .finally(() => {
-      newCardPopup.setLoading(false);
-    });
-}*/
 
 function handleProfileFormSubmit(inputValues) {
   return api
