@@ -1,4 +1,4 @@
-export const initialCards = [
+/*export const initialCards = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -28,7 +28,7 @@ export const initialCards = [
     name: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
-];
+]; */
 
 export const settings = {
   formSelector: ".modal__form",
@@ -38,3 +38,18 @@ export const settings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
+/* Elements 
+const imageEditButton = document.querySelector(".profile__image-edit-icon");
+const profileEditButton = document.querySelector("#profile-edit-button");
+const profileEditModal = document.querySelector("#profile-edit-modal");
+const addCardModal = document.querySelector("#card-add-modal");
+const profileImageModal = document.querySelector("#avatar-modal");
+const addNewCardButton = document.querySelector("#card-add-button");
+const profileTitleInput = document.querySelector("#profile-title-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
+const profileImageForm = profileImageModal.querySelector("#avatar-edit-form");
+const profileEditForm = profileEditModal.querySelector("#profile-edit-form");
+const addCardForm = addCardModal.querySelector("#add-card-form"); */
