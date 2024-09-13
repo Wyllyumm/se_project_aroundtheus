@@ -32,20 +32,28 @@ const section = new Section(
     items: [],
     renderer,
   },
-  ".cards__list",
-  api
-    .getInitialCards()
-    .then((cardData) => {
-      const section = new Section(
-        { items: cardData, renderer },
-        ".cards__list"
-      );
-      section.renderItems();
-    })
-    .catch((err) => {
-      console.error(err);
-    })
+  ".cards__list"
 );
+
+api
+  .getInitialCards()
+  .then((cardData) => {
+    /*const section = new Section({ items: cardData, renderer }, ".cards__list");*/
+    section.renderItems(cardData);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+/*api
+  .getInitialCards()
+  .then((cardData) => {
+    const section = new Section({ items: [], renderer }, ".cards__list");
+    section.renderItems(cardData);
+  })
+  .catch((err) => {
+    console.error(err);
+  });*/
 
 /* Elements */
 const imageEditButton = document.querySelector(".profile__image-edit-icon");
