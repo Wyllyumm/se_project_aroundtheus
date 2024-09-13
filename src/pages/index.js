@@ -29,7 +29,7 @@ api
 
 const section = new Section(
   {
-    items: [],
+    items: {},
     renderer,
   },
   ".cards__list"
@@ -38,7 +38,7 @@ const section = new Section(
 api
   .getInitialCards()
   .then((cardData) => {
-    /*const section = new Section({ items: cardData, renderer }, ".cards__list");*/
+    /*const section = new Section({ items: cardData, renderer }, ".cards__list"); */
     section.renderItems(cardData);
   })
   .catch((err) => {
